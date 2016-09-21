@@ -7,33 +7,31 @@
     <link rel="stylesheet" href="styles/main.css" media="screen" title="no title" charset="utf-8">
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script> -->
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+
     <script type="text/javascript" src="scripts/app.js" ></script>
     <script type="text/javascript" src="scripts/controllers/movieController.js"></script>
+    <script type="text/javascript" src="scripts/services/movie.service.js"></script>
   </head>
   <body>
     <h1 class="eight columns offset-by-two columns">Is It Rotten?</h1>
 
-    <form>
-        <div class="row">
+    <form class="row"  ng-controller="movieController">
           <div class="three columns offset-by-two columns">
             <label for="titleSearch">Title</label>
-            <input class="u-full-width" type="text" placeholder="Forrest Gump" id="titleSearch" >
+            <input ng-model="movie.title" class="u-full-width" type="text" placeholder="Forrest Gump" id="titleSearch" >
           </div>
-          <div class="three columns">
+          <!-- <div class="three columns">
             <label for="yearSearch">Year</label>
             <input class="u-full-width" type="number" placeholder="1994" id="yearSearch" >
-          </div>
-          <div class="three columns">
-            <button class="button primary" type="submit">Search</button>
-          </div>
-        </div>
+          </div> -->
+          <input ng-click="getMovie(movie.title)" id="submitBtn" class="three columns button primary" type="submit" value="Search">
     </form>
 
     <hr>
 
     <div class="container" ng-controller="movieController">
-      <h3 class="six columns offset-by-three columns">{{dummyMovie.title}}</h3>
-      <img class="four columns offset-by-four columns" src="{{dummyMovie.poster}}" alt="" />
+      <h3 class="six columns offset-by-three columns">{{movie.title}}</h3>
+      <img class="four columns offset-by-four columns" ng-src="{{movie.poster}}" alt="" />
     </div>
 
   </body>
