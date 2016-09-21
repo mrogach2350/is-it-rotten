@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html>
-  <head ng-app="IsItRotten">
+<html ng-app="IsItRotten">
+  <head>
     <meta charset="utf-8">
     <title>Is It Rotten?</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <link rel="stylesheet" href="/bower_components/skeleton/css/skeleton.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="/styles/main.css" media="screen" title="no title" charset="utf-8">
-    <script type="text/javascript" src="/scripts/app.js" ></script>
+    <link rel="stylesheet" href="bower_components/skeleton/css/skeleton.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="styles/main.css" media="screen" title="no title" charset="utf-8">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script> -->
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="scripts/app.js" ></script>
+    <script type="text/javascript" src="scripts/controllers/movieController.js"></script>
   </head>
   <body>
     <h1 class="eight columns offset-by-two columns">Is It Rotten?</h1>
@@ -29,6 +31,10 @@
 
     <hr>
 
+    <div class="container" ng-controller="movieController">
+      <h3 class="six columns offset-by-three columns">{{dummyMovie.title}}</h3>
+      <img class="four columns offset-by-four columns" src="{{dummyMovie.poster}}" alt="" />
+    </div>
 
   </body>
 </html>
