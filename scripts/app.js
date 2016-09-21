@@ -1,3 +1,2 @@
 console.log("Sanity Check");
-
-angular.module('IsItRotten')
+angular.module('IsItRotten', [])
