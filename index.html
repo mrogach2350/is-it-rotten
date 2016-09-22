@@ -12,10 +12,10 @@
     <script type="text/javascript" src="scripts/controllers/movieController.js"></script>
     <script type="text/javascript" src="scripts/services/movie.service.js"></script>
   </head>
-  <body>
+  <body ng-controller="movieController">
     <h1 class="eight columns offset-by-two columns">Is It Rotten?</h1>
 
-    <form class="row"  ng-controller="movieController">
+    <form class="row" >
           <div class="three columns offset-by-two columns">
             <label for="titleSearch">Title</label>
             <input ng-model="movie.title" class="u-full-width" type="text" placeholder="Forrest Gump" id="titleSearch" >
@@ -29,9 +29,13 @@
 
     <hr>
 
-    <div class="container" ng-controller="movieController">
-      <h3 class="six columns offset-by-three columns">{{movie.title}}</h3>
-      <img class="four columns offset-by-four columns" ng-src="{{movie.poster}}" alt="" />
+    <div class="container">
+      <h3 class="six columns offset-by-three columns">{{movie.Title}}</h3>
+      <img class="four columns offset-by-two columns" ng-src="{{image}}" alt="" />
+      <p class="four columns">
+        {{movie.tomatoConsensus}} <br>
+        TomatoMeter: {{movie.tomatoMeter}}
+      </p>
     </div>
 
   </body>
