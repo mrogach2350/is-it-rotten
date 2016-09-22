@@ -5,7 +5,6 @@
     <title>Is It Rotten?</title>
     <link rel="stylesheet" href="bower_components/skeleton/css/skeleton.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="styles/main.css" media="screen" title="no title" charset="utf-8">
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script> -->
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 
     <script type="text/javascript" src="scripts/app.js" ></script>
@@ -27,31 +26,28 @@
       <h1 class="eight columns offset-by-two columns">Is It Rotten?</h1>
 
       <form class="row" >
-            <div class="three columns offset-by-two columns">
-              <!-- <label for="titleSearch">Title</label> -->
+            <div class="three columns offset-by-three columns">
               <input ng-model="movie.title" class="u-full-width" type="text" placeholder="Movie Title" id="titleSearch" >
             </div>
-            <!-- <div class="three columns">
-              <label for="yearSearch">Year</label>
-              <input class="u-full-width" type="number" placeholder="1994" id="yearSearch" >
-            </div> -->
             <input ng-click="getMovie(movie.title)" id="submitBtn" class="three columns button primary" type="submit" value="Search">
       </form>
     </div>
 
 
     <div class="container">
-      <h3 class="six columns offset-by-three columns">{{movie.Title}}</h3>
-      <img class="four columns offset-by-two columns" ng-src="{{image}}" alt="" />
+      <h5 class="two columns offset-by-one column">{{movie.Runtime}}</h5>
+      <h3 class="six columns ">{{movie.Title}}</h3>
+      <h5 class="two columns offset-by-one column">{{movie.Rated}}</h5>
+      <a target="_blank" href="{{movie.tomatoURL}}"><img class="four columns offset-by-two columns" ng-src="{{image}}" alt="" /></a>
       <p class="four columns">
         {{movie.tomatoConsensus}}
         <br>
         TomatoMeter: {{movie.tomatoMeter}}%
       </p>
       <br>
-      <div class="fb-share-button one column" data-href="{{movie.tomatoURL}}" data-layout="button_count" data-size="large" data-mobile-iframe="true">
+      <!-- <div class="fb-share-button one column" data-href="{{movie.tomatoURL}}" data-layout="button_count" data-size="large" data-mobile-iframe="true">
         <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a>
-      </div>
+      </div> -->
     </div>
 
 

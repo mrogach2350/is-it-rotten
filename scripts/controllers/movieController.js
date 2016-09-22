@@ -70,6 +70,12 @@ angular
       else if (str === 'certified'){
        $scope.image = "http://i.imgur.com/zWnlkTY.png";
      }
+     else if (str === 'N/A'){
+       $scope.image = '../images/tomatolost.png';
+       $scope.movie = {};
+       $scope.movie.Title = 'Our little tomato got lost!';
+       $scope.movie.tomatoConsensus = 'Please try again. Remember to check spelling!';
+     }
    }
 
   };

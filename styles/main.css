@@ -5,8 +5,8 @@ h1 {
 }
 .header {
   background-image: url(/images/crowd.jpg);
-  background-position: bottom;
-  margin: 0;
+  background-size: contain;
+  height: 150px;
 }
 .container {
   color: white;
@@ -14,9 +14,10 @@ h1 {
 #submitBtn {
     background: white;
 }
-h3 {
+h3, h5 {
+  margin-top: 15px;
   text-align: center;
-  border: 3px solid black;
+  background: rgba(0, 0, 0, 0.8);;
 }
 img {
   max-width: 250px;
