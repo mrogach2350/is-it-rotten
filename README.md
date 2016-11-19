@@ -1,4 +1,4 @@
-# is-it-rotten
+# Is It Rotten?
 
 Single page application utilizing Angular to render searchs to OpenMovieDB API. 
 
