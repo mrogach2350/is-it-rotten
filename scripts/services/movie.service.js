@@ -4,14 +4,12 @@ angular
 
   MovieService.$inject = ['$http', '$q'];
   function MovieService($http, $q) {
-    console.log('service');
     var self = this;
     self.movie = {};
     self.get = get;
 
 
   function get(title) {
-    console.log('someone searched for movie', title)
      var searchTitle = '&t=' + title.toLowerCase().split(' ').join('+');
      var def = $q.defer();
 
@@ -23,13 +21,13 @@ angular
     return def.promise;
 
     function onMovieShowSuccess(response) {
-      console.log('MovieService: here\'s the data for movie', title, ':', response.data);
+      console.log(response.data);
       self.movie = response.data;
       def.resolve(self.movie);
     }
     function onError(error){
       console.log('there was an error: ', error);
-      self.book = {error: error};
+      self.movie = {error: error};
       def.reject(self.movie);
     }
   }
