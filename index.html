@@ -3,54 +3,56 @@
   <head>
     <meta charset="utf-8">
     <title>Is It Rotten?</title>
-    <link rel="stylesheet" href="bower_components/skeleton/css/skeleton.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css" media="screen" title="no title" charset="utf-8">
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-
+    <script src="bower_components/angular-socialshare/angular-socialshare.min.js"></script>
     <script type="text/javascript" src="scripts/app.js" ></script>
     <script type="text/javascript" src="scripts/controllers/movieController.js"></script>
     <script type="text/javascript" src="scripts/services/movie.service.js"></script>
   </head>
   <body ng-controller="movieController">
 
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
     <div class="header">
-      <h1 class="eight columns offset-by-two columns">Is It Rotten?</h1>
+      <h1>Is It Rotten?</h1>
 
-      <form class="row" >
-            <div class="three columns offset-by-three columns">
-              <input ng-model="movie.title" class="u-full-width" type="text" placeholder="Movie Title" id="titleSearch" >
-            </div>
-            <input ng-click="getMovie(movie.title)" id="submitBtn" class="three columns button primary" type="submit" value="Search">
+      <form class="row" ng-submit="getMovie(movie.title)">
+        <input ng-model="movie.title" class="u-full-width" type="text" placeholder="Movie Title" id="titleSearch" >
+        <input ng-click="getMovie(movie.title)" class="btn btn-primary" type="submit" value="Search">
       </form>
     </div>
 
+    <div class="main conatiner">
+      <div class="movieHeader row">
+        <h3 class="col-xs-12 col-md-5 col-md-offset-1">{{movie.Title}}</h3>
+        <h3 class="col-xs-6 col-md-3">{{movie.Runtime}}</h3>
+        <h3 class="col-xs-6 col-md-2">{{movie.Rated}}</h3>
+      </div>
 
-    <div class="container">
-      <h5 class="two columns offset-by-one column">{{movie.Runtime}}</h5>
-      <h3 class="six columns ">{{movie.Title}}</h3>
-      <h5 class="two columns offset-by-one column">{{movie.Rated}}</h5>
-      <a target="_blank" href="{{movie.tomatoURL}}"><img class="four columns offset-by-two columns" ng-src="{{image}}" alt="" /></a>
-      <p class="four columns">
-        {{movie.tomatoConsensus}}
-        <br>
-        TomatoMeter: {{movie.tomatoMeter}}%
-      </p>
-      <br>
-      <!-- <div class="fb-share-button one column" data-href="{{movie.tomatoURL}}" data-layout="button_count" data-size="large" data-mobile-iframe="true">
-        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a>
-      </div> -->
+      <div class="container movieBody">
+        <div class="col-md-6">
+          <a target="_blank" href="{{movie.tomatoURL}}"><img class="movieImage" ng-hide="imdb" ng-src="{{image}}" alt="Rotten Tomatoes" /></a>
+          <a target="_blank" href="{{imdbURL}}"><img class="movieImage" ng-show="imdb" src="http://i.imgur.com/VcmHrc1.png" alt="IMDB" /></a>
+          <br>
+          <button class="btn btn-info text-center" ng-show="imdb" ng-click="imdb = !imdb">Rotten Tomatoes</button>
+          <button class="btn btn-info text-center" ng-hide="imdb" ng-click="imdb = !imdb">IMDB</button>
+        </div>
+
+        <div class="col-md-6">
+          <p ng-hide="imdb">
+            {{movie.tomatoConsensus}}
+            <br>
+            <span class="rating">TomatoMeter: {{movie.tomatoMeter}}%</span>
+          </p>
+
+          <p ng-show="imdb">
+            {{movie.Plot}}
+            <br>
+            <span class="rating">Rating: {{movie.imdbRating}}</span>
+          </p>
+        </div>
+      </div>
     </div>
-
-
-
   </body>
 </html>
