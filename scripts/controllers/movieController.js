@@ -43,6 +43,7 @@ angular
     tomato($scope.movie.tomatoImage);
 
     $scope.getMovie = getMovie;
+    $scope.imdbURL = 'http://www.imdb.com/title/' + $scope.movie.imdbID;
 
     function getMovie(title){
       console.log('Current movie:', $scope.movie);
@@ -54,20 +55,24 @@ angular
     function onMovieGetSuccess(movie){
       console.log('controller got back movie: ', movie);
       $scope.movie = movie;
+      $scope.imdbURL = 'http://www.imdb.com/title/' + $scope.movie.imdbID;
       tomato($scope.movie.tomatoImage);
     }
     function onError(){
-      console.log('contoller: error retrieving book');
+      console.log('contoller: error retrieving movie');
     }
 
    function tomato(str){
      if (str === 'fresh'){
+      //  $scope.imdb = 'http://i.imgur.com/VcmHrc1.png';
        $scope.image = "http://i.imgur.com/tTca7fW.png";
      }
      else if (str === 'rotten'){
+      //  $scope.imdb = 'http://i.imgur.com/VcmHrc1.png';
        $scope.image = "http://i.imgur.com/7qhJwKm.png";
      }
       else if (str === 'certified'){
+      //  $scope.imdb = 'http://i.imgur.com/VcmHrc1.png';
        $scope.image = "http://i.imgur.com/zWnlkTY.png";
      }
      else if (str === 'N/A'){
@@ -75,7 +80,10 @@ angular
        $scope.movie = {};
        $scope.movie.Title = 'Our little tomato got lost!';
        $scope.movie.tomatoConsensus = 'Please try again. Remember to check spelling!';
+       $scope.imdb = '../images/tomatolost.png';
+       $scope.movie.Plot = 'Please try again. Remember to check spelling!';
      }
    }
+
 
   };
