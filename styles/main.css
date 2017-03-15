@@ -18,6 +18,8 @@
 }
 .movieImage {
   text-align: center;
+  max-width: 100%;
+  height: auto
 }
 body {
   background-image: url('http://www.wallpaperup.com/uploads/wallpapers/2015/12/12/858715/big_thumb_38ab8700ce1051a9b2311504d06f8289.jpg');

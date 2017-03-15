@@ -77,11 +77,11 @@ angular
      }
      else if (str === 'N/A'){
        $scope.image = '../images/tomatolost.png';
-       $scope.movie = {};
-       $scope.movie.Title = 'Our little tomato got lost!';
-       $scope.movie.tomatoConsensus = 'Please try again. Remember to check spelling!';
-       $scope.imdb = '../images/tomatolost.png';
-       $scope.movie.Plot = 'Please try again. Remember to check spelling!';
+      //  $scope.movie = {};
+      //  $scope.movie.Title = 'Our little tomato got lost!';
+       $scope.movie.tomatoConsensus = 'Sorry, I didn\'t find anything, please click the image for more info.';
+      //  $scope.imdb = '../images/tomatolost.png';
+      //  $scope.movie.Plot = 'Please try again. Remember to check spelling!';
      }
    }
 
